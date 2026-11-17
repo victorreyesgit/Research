@@ -1,9 +1,9 @@
 // ===== Settings: change these if your repo differs =====
 var OWNER  = "victorreyesgit";
-var REPO   = "Portfolio";
+var REPO   = "Research";
 var BRANCH = "main";
 var FILE   = "portfolio.js";
-// Same storage key as the Home hub admin: on a GitHub user site (victorreyesgit.github.io)
+// Same storage key as the Projects hub admin: on a GitHub user site (victorreyesgit.github.io)
 // both admin pages share one origin, so a token saved in one is found by the other.
 var KEY = "projectsHubToken";
 // =======================================================
@@ -33,7 +33,7 @@ async function explain(r) {
   var m = ""; try { m = (await r.json()).message || ""; } catch (e) {}
   if (r.status === 401) return "GitHub rejected the token (401). It may be expired or mistyped. Forget it and paste a new one.";
   if (r.status === 403) return "Access denied (403). Check the token has Contents: Read and write. " + m;
-  if (r.status === 404) return "Not found (404). Either OWNER/REPO/BRANCH/FILE at the top of admin.js are wrong, or this token cannot access the " + REPO + " repo (a token made only for another repo, such as Home, needs " + REPO + " added to its repository access).";
+  if (r.status === 404) return "Not found (404). Either OWNER/REPO/BRANCH/FILE at the top of admin.js are wrong, or this token cannot access the " + REPO + " repo (a token made only for another repo, such as Projects, needs " + REPO + " added to its repository access).";
   return "GitHub error " + r.status + ". " + m;
 }
 
